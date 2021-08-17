@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm mt-1 mb-2 p-2 fs-4">
+                Cart
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mb-3" *ngFor="let selectedProduct of listOfCartProducts">
+            <div class="card shadow">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-2 text-center">
+                        <div style="height: 216px;width: 150px;text-align:center;">
+                            <img [src]="selectedProduct['productListImage']" alt="" class="src" style="margin: 0 auto;">
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <h3>{{selectedProduct['productListName']}} </h3>
+                        <h5>{{selectedProduct['productListPrice']}}
+                        </h5>
+                        <ol class="list-group list-group-flush p-3"
+                            [innerHtml]="selectedProduct['productListDescription']">
+                        </ol>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-success mx-1 my-1">Proceed</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="card p-3 shadow mb-3">
+    {{product_name}}
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2">
+            <div class="card shadow p-0">
+                &nbsp;
+            </div>
+        </div>
+        <div class="col-10 ">
+            <div class="container-fluid card shadow-sm mb-2" *ngFor="let productList of listOfProducts" routerLink="/product-info/{{productList['pid']}}">
+                <div class="row justify-content-center align-items-center" style="height: 100%;">
+                    <div class="col-3 text-center" style="height: 200px;width: 200px;">
+                        <img [src]="productList.productListImage" alt="product_img"
+                            style="max-width: 100%;max-height: 100%;" />
+                    </div>
+                    <div class="col-9 text-start p-2">
+                        <h5>{{productList.productListName}} <label
+                                style="float: right;">₹{{productList.productListPrice}}</label></h5>
+                        <ul class="list-group list-group-flush" [innerHTML]="productList.productListDescription">
+                            
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

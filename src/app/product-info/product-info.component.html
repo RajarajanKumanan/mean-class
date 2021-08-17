@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="card shadow mb-3 p-2">
+            Title
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1">
+
+        </div>
+        <div class="col-3">
+            <div style="height: 416px;width: 205px;text-align: center;">
+                <img [src]="selectedProduct['productListImage']" alt="" class="src" style="margin: 0 auto;">
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="card shadow p-3">
+                <h3>{{selectedProduct['productListName']}} </h3>
+                <h5>{{selectedProduct['productListPrice']}}
+                    <button *ngFor="let color of printColor" (click)="loadSelectedColorProduct(color)"
+                        style="width:30px; height:30px;padding: 3px;"
+                        [ngStyle]="{'border': selectedColor==color ? '2px solid green' : '2px solid #d3d3d3'}">
+                        <span [ngStyle]="{background:color}" style="display:block;width:100%; height:100%;">
+                        </span>
+                    </button>
+
+                </h5>
+                <div class="d-flex justify-content-end" style="width: 100%;">
+                    <button *ngFor="let storage of printStorage" (click)="loadSelectedStorageProduct(storage)"
+                        style="width:50px; height:30px;padding: 3px;"
+                        [ngStyle]="{'border': selectedStorage==storage ? '2px solid green' : '2px solid #d3d3d3'}">
+                        <span style="display:block;width:100%; height:100%;">
+                            {{storage}}
+                        </span>
+                    </button>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <ol class="list-group list-group-flush p-3"
+                            [innerHtml]="selectedProduct['productListDescription']">
+                        </ol>
+                    </div>
+                    <div class="col-4">
+                        <p class="text-danger" *ngIf="validatorMsg!='Available'">*{{validatorMsg}}</p>
+                        <button class="btn btn-primary my-1"  [disabled]="validatorMsg!='Available'" (click)="addCart(selectedProduct['pid'])">Add to cart</button>
+                        <button class="btn btn-success mx-1 my-1" [disabled]="validatorMsg!='Available'">Buy now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow mb-3">
+                <div class="card-title border-bottom border-secondary p-2 d-flex justify-content-between">
+                    <span class="fs-4" style="text-transform: capitalize;">{{ordername}}</span> <button class="btn btn-primary">View All</button>
+                </div>
+                <div class="card-body" style="display: flex;overflow-x: auto;">
+                    <div class="productHolder" *ngFor="let order of loadProducts">
+                        <div class="productImg">
+                            <img [src]="order.productImg" alt="" class="src">
+                        </div>
+                        <div class="productInfo">
+                            <label>{{order.productName}}</label>
+                            <label class="text-success">{{order.productOffer}}</label>
+                            <label class="text-muted">{{order.productMenu}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
